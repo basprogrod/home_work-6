@@ -1,3 +1,7 @@
+
+
+
+
 console.log('///////////////////////Mixin_1/////////////////////////')
 class Thing {
     constructor() {
@@ -158,6 +162,44 @@ console.log(g.next())
 console.log(g.next())
 console.log(g.next())
 
+console.log('///////////////////////локализации/////////////////////////')
 
 
+let val = new Intl.NumberFormat('en-US');
+let val_2 = new Intl.NumberFormat('ru');
 
+console.log(val.format(12121456465),'\n',val_2.format(12121456465));
+
+var date = new Date(2014, 11, 31, 12, 30, 0);
+
+var formatter = new Intl.DateTimeFormat("ru");
+console.log( formatter.format(date));
+
+var formatter = new Intl.DateTimeFormat("en-US");
+console.log( formatter.format(date));
+
+var date = new Date();
+
+var formatter = new Intl.DateTimeFormat("en", {
+  month: 'long',
+  hour: "numeric",
+  minute: "numeric",
+  second: "numeric"
+});
+
+console.log( formatter.format(date) );
+
+var formatter = new Intl.NumberFormat("en", {
+  style: "currency",
+  currency: "GBP"
+});
+
+console.log( formatter.format(1234.5) )
+var formatter = new Intl.NumberFormat("ru", {
+  style: "currency",
+  currency: "USD",
+  minimumSignificantDigits: '3',
+  useGrouping: true
+});
+
+console.log( formatter.format(98748595.3) )
